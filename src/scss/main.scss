@@ -1,0 +1,397 @@
+$titleFont: brandon-grotesque, sans-serif;
+ $titleWeightHeavy: 400;
+ $titleWeightLight: 300;
+
+$textFont: motiva-sans, sans-serif;
+  $textFontWeightHeavy: 400;
+  $textFontWeightLight: 300;
+
+$mainGreen: #1cd16e;
+$mainWhite: #F8FAFB;
+
+@mixin Flexbox-centered-vert-horiz {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+body {
+  margin: 0;
+}
+
+*:focus {outline:0;}
+
+@mixin logo {
+  width: 15%;
+  padding-left: 20px;
+}
+@mixin nav {
+  background: rgba(256, 256, 256, 0.3);
+  display: flex;
+  align-items: center;
+  height: 80px;
+  position: fixed;
+  width: 100%;
+}
+
+@mixin list {
+  display: flex;
+  align-items: center;
+  margin: 0 0 0 auto;
+  font-size: 1.3em;
+  font-family: brandon-grotesque, sans-serif;
+  font-weight: 400;
+  padding-right: 20px;
+}
+
+@mixin item {
+  list-style: none;
+  padding: 0 20px 0 20px;
+}
+
+@mixin link {}
+
+nav {
+  @include nav;
+  .nav-logo {
+    @include logo;
+  }
+  .nav-list {
+    @include list;
+  }
+  .nav-list__item {
+    @include item;
+  }
+}
+
+@mixin landing {
+  background-image: url("../../src/images/Road.svg"),
+                      url("../../src/images/Trees.svg"),
+                        url("../../src/images/BuildingsClose.svg"),
+                          url("../../src/images/BuildingsFar.svg"),
+                            url("../../src/images/CloudsClose.svg"),
+                              url("../../src/images/CloudsFar.svg");
+  background-size: 10;
+  background-repeat: repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x;
+  background-position: 0 100%, 0 100%, 0 100%, 0 100%, 0 100%, 0 100%;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  -webkit-animation: slide 70s linear infinite;
+}
+
+@keyframes slide {
+  from { background-position: 0 100%, 0 100%, 0 100%, 0 100%, 0 100%, 0 100% }
+  to { background-position: 0 100%, -1500px 100%, -2000px 100%, -1000px 100%, -1000px 100%, 1000px 100%; }
+}
+
+
+@mixin title {
+  font-family: brandon-grotesque, sans-serif;
+  font-weight: 300;
+  font-size: 3em;
+}
+
+.landing {
+  @include landing;
+  .landing-title {
+    @include title;
+  }
+}
+
+@mixin search {
+  background: (linear-gradient(rgba(249, 249, 249, 0.3), rgba(156, 209, 217, 0.3)));
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+@mixin reference {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+@mixin searchButton {
+  height: 43px;
+  border-top: 0.5px solid #1cd16e;
+  border-right: 0.5px solid #1cd16e;
+  border-bottom: 0.5px solid #1cd16e;
+  border-left: none;
+  font-family: brandon-grotesque, sans-serif;
+  font-size: 0.8em;
+}
+
+@mixin invalid {
+  color: #ff665f;
+  border: #ff665f;
+  font-family: $textFont;
+}
+
+@mixin truck {
+
+}
+
+@mixin loadText {
+  color: #1cd16e;
+  font-family: $textFont;
+  text-align: center;
+}
+
+@mixin search-result {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: auto;
+}
+
+@mixin searchBar {
+  width: 50%;
+  border: 0.5px solid #1cd16e;
+  margin: 20px 0px;
+  height: 40px;
+  font-size: 1.2em;
+  padding-left: 10px;
+  font-family: brandon-grotesque, sans-serif;
+}
+
+@mixin searchTitle {
+  font-family: brandon-grotesque, sans-serif;
+  font-weight: 300;
+  font-size: 2em;
+}
+
+@mixin moreInfo {
+  display: none;
+  flex-direction: column;
+  width: 50%;
+}
+
+@mixin inputWrapRow {
+  display: flex;
+  flex-direction: row;
+  margin: 30px 0;
+}
+
+@mixin inputWrap {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  font-family: brandon-grotesque, sans-serif;
+  height: 40px;
+}
+
+@mixin title {
+  margin: 0 0 0 10px;
+  position: absolute;
+  background: white;
+  padding: 0 5px 0 5px;
+  font-size: 0.8em;
+}
+
+@mixin small {
+  height: 35px;
+  border: 0.5px solid #1cd16e;
+  margin: 10px 4px 0 4px;
+  padding: 0 10px;
+
+}
+
+@mixin large {
+  border: 0.5px solid #1cd16e;
+  height: 35px;
+  margin: 10px 4px 0 4px;
+  padding: 0 10px;
+}
+
+@mixin result-wrap {
+  width: 60%;
+  padding: 30px;
+  background: linear-gradient(rgba(253, 251, 251, 0.9), rgba(248, 250, 251, 0.9));
+  box-shadow: 1px 1px 15px rgba(28, 209, 110, 0.3);
+  display: none;
+}
+
+@mixin entry-wrap {
+  background: transparent;
+}
+
+@mixin entry-title {
+  margin: 0px 0px -8px 10px;
+  z-index: 0;
+  font-size: 0.9em;
+  width: max-content;
+  position: relative;
+  background: #f9f9f9;
+  padding: 0 5px;
+  font-family: $titleFont;
+}
+
+@mixin entry {
+  background: transparent;
+  border: 0.5px solid #1cd16e;
+  width: 100%;
+  z-index: 1;
+  padding: 10px 0 10px 15px;
+  font-family: $textFont;
+}
+
+@mixin entry-button {
+  width: 100%;
+  margin: 20px 0;
+}
+
+@mixin inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
+
+@mixin local-storage {
+  position: absolute;
+  background: #ededed;
+  z-index: 6;
+  display: none;
+  border: 0.5px solid #1cd16e;
+  border-radius: 15px 15px 15px 15px;
+  text-align: center;
+  padding: 30px 10px;
+  margin: 10px;
+  font-family: $textFont;
+}
+
+
+.search {
+  @include search;
+  .search-result__wrap {
+    @include search-result;
+  }
+  .reference-wrap {
+    @include reference;
+  }
+  .search-submit {
+    @include searchButton;
+  }
+  .search-bar {
+    @include searchBar;
+  }
+  .search-title {
+    @include searchTitle;
+  }
+  .search-more-info {
+    @include moreInfo;
+  }
+  .resultWrap {
+    @include result-wrap;
+  }
+  .resultWrap-inner {
+    @include inner;
+  }
+  .form-entry__wrap {
+    @include entry-wrap;
+  }
+  .form-entry__title {
+    @include entry-title;
+  }
+  .form-entry {
+    @include entry;
+  }
+  .form-entry__button {
+    @include entry-button;
+  }
+}
+
+.localStorage {
+  @include local-storage;
+}
+
+.reference-invalid {
+  @include invalid;
+}
+
+.truck {
+  @include truck;
+}
+
+.loading-text {
+  @include loadText;
+}
+
+@mixin about {
+  background: linear-gradient(rgba(249, 249, 249, 0.3), rgba(156, 209, 217, 0.3));
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding-bottom: 100px;
+}
+
+@mixin aboutTitle {
+  font-family: brandon-grotesque, sans-serif;
+  font-weight: 300;
+  font-size: 3em;
+  margin: 0;
+  padding: 20px 0 50px 0;
+  text-align: center;
+}
+
+@mixin paraWrap {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+@mixin paragraph {
+  line-height: 1.6;
+  font-size: 17px;
+  font-family: brandon-grotesque, sans-serif;
+  width: 50%;
+  text-align: justify;
+}
+
+.about {
+  @include about;
+  .about-title {
+    @include aboutTitle;
+  }
+  .about-para__wrap {
+    @include paraWrap;
+  }
+  .about-para {
+    @include paragraph;
+  }
+}
+
+button {
+  border: 0.5px solid $mainGreen;
+  background: transparent;
+  padding: 12px;
+  font-family: $textFont;
+  font-size: 0.9em;
+
+}
+
+a {
+  text-decoration: none;
+  color: $mainGreen;
+}
+
+footer {
+  background-color: $mainGreen;
+  margin: 0;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  font-family: $titleFont;
+  color: #100000;
+  padding: 10px;
+}
