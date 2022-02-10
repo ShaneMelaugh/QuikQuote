@@ -25,7 +25,7 @@
     "browser-sync": "^2.26.3",
     "eslint": "^5.7.0",
     "imagemin-cli": "^3.0.0",
-    "node-sass": "^4.9.4",
+    "node-sass": "^7.0.0",
     "onchange": "^5.0.2",
     "parallelshell": "^3.0.2",
     "postcss-cli": "^6.0.0",
